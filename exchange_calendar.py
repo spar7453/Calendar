@@ -1,9 +1,8 @@
 import holidays as hday
 import calendar
-import typing
 import enum
 from dataclasses import dataclass
-from datetime import date, datetime, timedelta
+from datetime import date, timedelta
 
 MON, TUE, WED, THU, FRI, SAT, SUN = range(7)
 
@@ -11,6 +10,11 @@ MON, TUE, WED, THU, FRI, SAT, SUN = range(7)
 class Days:
     MON = 0
     TUE = 1
+    WED = 2
+    THU = 3
+    FRI = 4
+    SAT = 5
+    SUN = 6
 
 class CountryCode(enum.Enum):
     KR = "KR"
@@ -54,7 +58,7 @@ class ExchangeCalendar:
     def find_nth_day_in_month(year: int, month: int, day: int, nth: int) -> date:
         """
         nth = 1 -> returns first
-        eg) find_nth_day_in_month(2021,1,THU,2)
+        eg) find_nth_day_in_month(2021,1,Days.THU,2)
         """
         c = calendar.Calendar(firstweekday=calendar.SUNDAY)
         month_calendar = c.monthdatescalendar(year, month)
