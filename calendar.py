@@ -23,7 +23,8 @@ class CountryCode(enum.Enum):
     HK = "HK"
 
 
-class ExchangeCalendar:
+# TODO: Make own calendar
+class Calendar:
 
     _WEEKDAYS = [MON, TUE, WED, THU, FRI]
     _WEEKENDS = [SAT, SUN]
